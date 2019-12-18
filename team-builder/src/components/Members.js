@@ -1,7 +1,7 @@
 import React from "react";
 
 function Members(props){
-    console.log(props.teamMembers);
+    
     if (!props.teamMembers) return (<div>No Members are added yet</div>)
     return (
         <div className="team-container">
@@ -16,6 +16,7 @@ function Members(props){
                     <p>
                         {teamMember.role}
                     </p>
+                    <button onClick={()=>props.updateMember(teamMember)}>Edit</button>
                 </div>
             ))}
         </div>

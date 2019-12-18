@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
-function MemberForm({addTeamMember}){
+function MemberForm(props){
     //New Member initialization
     const [member, setMember] = useState({
                                             name:"",
                                             email:"",
                                             role:""
                                         })
-
+    
+    const {addTeamMember} = props;
+    const {memberToEdit} = props;
+    console.log("MemberToUpdate ", memberToEdit)
+    
+    useEffect(()=>{
+        setMember({
+                    name: memberToEdit.name,
+                    email:memberToEdit.email, 
+                    role:memberToEdit.role
+                    }
+                    );
+    },[memberToEdit])
+  
+    
     //set new member to member variable using on change
-
+            
     const handleChange = e => {
         setMember({...member,
                      [e.target.name]: e.target.value
