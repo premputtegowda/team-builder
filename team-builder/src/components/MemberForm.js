@@ -11,6 +11,8 @@ function MemberForm(props){
     
     const {addTeamMember} = props;
     const {memberToEdit} = props;
+    
+    
     console.log("MemberToUpdate ", memberToEdit)
     
     useEffect(()=>{
@@ -20,6 +22,8 @@ function MemberForm(props){
                     role:memberToEdit.role
                     }
                     );
+        
+        
     },[memberToEdit])
   
     
